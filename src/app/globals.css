@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.header-menu-link-text {
+  transition: 0.4s color, 0.4s transform cubic-bezier(0.4, 0, 0.1, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.header-menu-link-text-clone {
+  transition: 0.4s color, 0.4s transform cubic-bezier(0.4, 0, 0.1, 1);
+  transform: translate3d(0, 100%, 0);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.header-menu-link-inner:hover .header-menu-link-text-clone {
+  transform: translateZ(0);
+  transform: translate3d(0, 0%, 0);
+}
+.header-menu-link-inner:hover .header-menu-link-text {
+  transform: translate3d(0, -100%, 0);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+#home-reel-cta {
+  padding: 1em 1.5em 1em 1.625em;
+  box-shadow: 0 6px 10px #0000000a, 0 2px 4px #0000000a;
+  transition: background cubic-bezier(0.35, 0, 0, 1) 0.2s;
+  will-change: transform;
+}
+
+#home-reel-cta-dot {
+  transition: background cubic-bezier(0.35, 0, 0, 1) 0.5s, transform cubic-bezier(0.35, 0, 0, 1) 0.4s;
+}
+
+#home-reel-cta-text {
+  transition: color cubic-bezier(0.35, 0, 0, 1) 0.5s, transform cubic-bezier(0.35, 0, 0, 1) 0.4s;
+}
+
+#home-reel-cta-arrow {
+  transform: translate3d(3em, 0, 0);
+  transition: transform cubic-bezier(0.4, 0, 0, 1) 0.4s;
+}
+
+#home-reel-cta:hover {
+  color: black;
+  background: #e7f99a;
+  transition: background cubic-bezier(0.35, 0, 0, 1) 0.5s 0.3s;
+}
+
+#home-reel-cta:hover #home-reel-cta-text {
+  transform: translate3d(-1.5em, 0, 0);
+}
+
+#home-reel-cta:hover #home-reel-cta-dot {
+  transform: translate3d(3em, 0, 0) scale(24);
+  background: #e7f99a;
+}
+
+#home-reel-cta:hover #home-reel-cta-arrow {
+  transform: translateZ(0);
+}
+
+#home-reel-cta:hover #home-reel-cta-arrow svg path {
+  stroke: black;
 }
